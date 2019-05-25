@@ -15,7 +15,11 @@ module.exports = {
   //   ecmaVersion: 6
   // },
   // 脚本在执行期间访问的额外的全局变量
-  // globals: {},
+  globals: {
+    'App': true,
+    'wx': true,
+    'Page': true
+  },
   // env: 指定脚本的运行环境
   env: {
     browser: true,
@@ -313,7 +317,7 @@ module.exports = {
     // 禁止对__dirname和__filename进行字符串连接
     'no-path-concat': 1,
     // 强制在function的左括号之前使用一致的空格
-    'space-before-function-paren': [2, 'never'],
+    'space-before-function-paren': [2, 'always'],
 
     /**
      * Possible Errors
