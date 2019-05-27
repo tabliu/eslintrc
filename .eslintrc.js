@@ -9,28 +9,35 @@ module.exports = {
   // babel-ESLint: 一个对Babel解析器的包装，使其能够与ESLint兼容。
   // parser: 'babel-eslint',
   // 设置解析器能帮助ESLint确定什么是解析错误。
-  // parserOptions: {
-  //   parser: 'babel-eslint',
-  //   // 指定js版本。语法上的支持
-  //   ecmaVersion: 6
-  // },
-  // 脚本在执行期间访问的额外的全局变量
-  globals: {
-    'App': true,
-    'wx': true,
-    'Page': true
+  parserOptions: {
+    parser: 'babel-eslint',
+    sourceType: "module",
+    // 指定js版本。语法上的支持
+    ecmaVersion: 6
   },
+
   // env: 指定脚本的运行环境
   env: {
     browser: true,
     es6: true,
     node: true
   },
+
+  // 脚本在执行期间访问的额外的全局变量
+  globals: {
+    'App': false,
+    'getApp': false,
+    'wx': false,
+    'Page': false,
+    'Component': false
+  },
+
   // 使用第三方插件。全局安装的 ESLint 实例只能使用全局安装的ESLint插件。本地同理，不支持混用。
   // plugins: [
   //   'html',
   //   'vue'
   // ],
+
   // 配置文件从基础配置中继承已启用的规则。
   /**
    * eslint:recommended  启用核心规则，在规则页面中被标记为 √ 的。
@@ -196,7 +203,7 @@ module.exports = {
      * Stylistic Issues
      * 这些规则是关于代码风格的。
      */
-    //  获取当前执行环境的上下文时，强制使用一致的命名（此处强制使用 'that'）。
+    //  获取当前执行环境的上下文时，强制使用一致的命名（此处强制使用 'self'）。
     'consistent-this': [2, 'self'],
     // 禁止或强制在代码块中开括号前和闭括号后有空格  { return 11 }
     'block-spacing': [2, 'always'],
